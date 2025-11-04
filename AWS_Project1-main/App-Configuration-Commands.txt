@@ -1,0 +1,57 @@
+sudo -su ec2-user
+sudo yum update -y
+wget https://repo.mysql.com/mysql80-community-release-el7-8.noarch.rpm
+sudo rpm -ivh mysql80-community-release-el7-8.noarch.rpm
+sudo yum install mysql-community-server -y
+MySQL --version
+
+
+mysql -h <RDS End point link> -u admin -p Enter
+Password<DB Password>
+
+1. Create a database using below commends
+* CREATE DATABASE <database name>;
+* SHOW DATABASES;
+* USE <database name>;
+* CREATE TABLE IF NOT EXISTS transactions(id INT NOT NULL
+  AUTO_INCREMENT, amount DECIMAL(10,2), description
+  VARCHAR(100), PRIMARY KEY(id)); 
+* SHOW TABLES;
+* INSERT INTO transactions (amount, description) VALUES ('400','groceries');
+* SELECT * FROM transactions;
+* Make necessary updates/changes to DBconfig.js file. [Like DB name, DB password,etc]
+2.When finished, just type exit and hit enter to exit the MySQL client.
+3.Upload the App and Web folder into s3 bucket.
+
+##-----Copy The Content From S3------##
+
+1.aws s3 cp s3://BUCKET_NAME/application-code/app-tier/ app-tier --recursive
+2.switch to cd app-tier
+3.sudo chown -R ec2-user:ec2-user /home/ec2-user/app-tier
+4.sudo chmod -R 755 /home/ec2-user/app-tier
+
+####------Installing Node.js-----###
+1.curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+2.source ~/.bashrc
+3.nvm install 16
+4.nvm use 16
+5.npm install -g pm2
+6.npm install
+###-----Start Index.js File -----###
+1.pm2 start index.js
+2.pm2 list
+3.pm2 logs [To exit do Ctrl+C]
+4.pm2 startup [After running this you will see a message like below]
+sudo env PATH=$PATH:/home/ec2-user/.nvm/versions/node/v16.0.0/bin /home/ec2-user/.nvm/versions/node/v16.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ec2-user —hp /home/ec2-user
+
+5.pm2 save 
+
+@@ Now let's run a couple tests to see if our app is configured correctly and can retrieve data from the database.##
+
+1.curl http://localhost:4000/health [The Response look like "This is the health check"]
+2.curl http://localhost:4000/transaction
+
+You should see a response containing the test data we added earlier:
+{"result":[{"id":1,"amount":400,"description":"groceries"},{"id":2,"amount":100,"description":"class"},{"id":3,"amount":200,"description":"other groceries"},{"id":4,"amount":10,"description":"brownies"}]}
+
+If you see both of these responses, then your networking, security, database and app configurations are correct.
