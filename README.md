@@ -42,7 +42,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 - Place them in DB subnet group created above.
 
 ## Step 7: Create Test App Server, Install Packages, Test Connections
-- [Test App-Server Commands](https://github.com/pandacloud1/AWS_Project1/blob/main/app-server-commands)
+- [Test App-Server Commands](https://github.com/Cloud-Lucky/3-Tier-Architecture-Aws-1.git/AWS_Project1-main/App-Configuration-Commands.txt)
 - Create AMI.
 - Create launch template using AMI.
 - Create target group.
@@ -51,7 +51,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 - Edit `nginx.conf` file in local system by adding Internal-LB-DNS & upload the file in S3.
 
 ## Step 8: Create Test Web Server, Install Packages (Nginx, Node.js (React)), Test Connections
-- [Test Web-Server Commands](https://github.com/pandacloud1/AWS_Project1/blob/main/web-server-commands)
+- [Test Web-Server Commands](https://github.com/Cloud-Lucky/3-Tier-Architecture-Aws-1.git/AWS_Project1-main/Web-Configuration-Commands.txt)
 - Create AMI.
 - Create launch template using AMI.
 - Create target group.
