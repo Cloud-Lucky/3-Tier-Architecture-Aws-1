@@ -43,6 +43,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 
 ## Step 7: Create Test App Server, Install Packages, Test Connections
 - [Test App-Server Commands](https://github.com/Cloud-Lucky/AWS_Project1-main/App-Configuration-Commands.txt)
+- # In case if link is working - Check from AWS_Project1-main drop down list
 - Create AMI.
 - Create launch template using AMI.
 - Create target group.
@@ -52,6 +53,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 
 ## Step 8: Create Test Web Server, Install Packages (Nginx, Node.js (React)), Test Connections
 - [Test Web-Server Commands](https://github.com/Cloud-Lucky/3-Tier-Architecture-Aws-1.git/AWS_Project1-main/Web-Configuration-Commands.txt)
+- # In case if link is working - Check from AWS_Project1-main drop down list
 - Create AMI.
 - Create launch template using AMI.
 - Create target group.
@@ -76,8 +78,3 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 - Delete RDS subnet group, RDS.
 
 ---
-
-
-## Workshop Instructions:
-
-See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
