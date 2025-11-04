@@ -42,7 +42,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 - Place them in DB subnet group created above.
 
 ## Step 7: Create Test App Server, Install Packages, Test Connections
-- [Test App-Server Commands](https://github.com/Cloud-Lucky/3-Tier-Architecture-Aws-1.git/AWS_Project1-main/App-Configuration-Commands.txt)
+- [Test App-Server Commands](https://github.com/Cloud-Lucky/AWS_Project1-main/App-Configuration-Commands.txt)
 - Create AMI.
 - Create launch template using AMI.
 - Create target group.
