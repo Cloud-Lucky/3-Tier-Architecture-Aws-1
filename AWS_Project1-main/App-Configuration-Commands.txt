@@ -1,8 +1,9 @@
 sudo -su ec2-user
 sudo yum update -y
-wget https://repo.mysql.com/mysql80-community-release-el7-8.noarch.rpm
-sudo rpm -ivh mysql80-community-release-el7-8.noarch.rpm
-sudo yum install mysql-community-server -y
+sudo dnf install mysql80-community-release-el9-1.noarch.rpm -y
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+sudo dnf install mysql-community-client -y
+sudo dnf install mysql-community-server -y
 MySQL --version
 
 
